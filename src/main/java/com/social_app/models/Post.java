@@ -27,6 +27,18 @@ public class Post {
     )
     private List<User> liked = new ArrayList<>();
 
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
+
+    //Many comments to one post
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -83,7 +95,7 @@ public class Post {
         this.liked = liked;
     }
 
-    public Post(Integer id, String caption, String imageUrl, String videoUrl, User user, LocalDateTime createdAt, List<User> liked) {
+    public Post(Integer id, String caption, String imageUrl, String videoUrl, User user, LocalDateTime createdAt, List<User> liked, List<Comment> comments) {
         this.id = id;
         this.caption = caption;
         this.imageUrl = imageUrl;
@@ -91,7 +103,10 @@ public class Post {
         this.user = user;
         this.createdAt = createdAt;
         this.liked = liked;
+        this.comments = comments;
     }
+
+
 
     public Post(){
 
