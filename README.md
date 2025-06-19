@@ -1,1 +1,1 @@
-# Social_Media_Application_SpringBoot
+Social Media Application in Spring Boot. 
